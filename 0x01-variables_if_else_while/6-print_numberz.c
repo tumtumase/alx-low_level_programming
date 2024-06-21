@@ -7,13 +7,14 @@
  */
 int main(void)
 {
-    int num = 0;
+    int num;
 
-    while (num < 10)
+    for (num = 0; num < 10; num++)
     {
-        putchar(num + '0'); // Convert integer to corresponding ASCII character
-        num++;
+        putchar(num + '0');
     }
-    putchar('\n'); // Print newline character at the end
+    
+    putchar('\n');
+
     return (0);
 }
