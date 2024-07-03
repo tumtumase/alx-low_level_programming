@@ -3,36 +3,30 @@
 #include <time.h>
 
 /**
- * main - generates random valid passwords
- * Return: 0
+ * main - Generates a random valid password for the 101-crackme program.
+ *
+ * Return: Always 0.
  */
 int main(void)
 {
-	char password[7];
-	int i, sum = 0, diff, a;
+    char password[100]; // Assume maximum length for the password
+    int sum = 0;
+    int index = 0;
+    int ascii_value;
 
-	srand(time(NULL));
+    srand(time(0)); // Seed the random number generator
 
-	for (i = 0; i < 5; i++)
-	{
-		a = rand() % 74 + 48;
-		if (a >= 48 && a <= 57)
-			password[i] = a;
-		else if (a >= 65 && a <= 90)
-			password[i] = a;
-		else
-			password[i] = a;
-		sum += password[i] - '0';
-	}
+    while (sum < 2772)
+    {
+        ascii_value = rand() % 94 + 33; // ASCII values from '!' (33) to '~' (126)
+        password[index++] = (char)ascii_value;
+        sum += ascii_value;
+    }
 
-	diff = sum - 2772;
-	if (diff > 0)
-		password[i] = diff;
-	else
-		password[i] = 2772 - sum;
+    password[index] = '\0'; // Null-terminate the string
 
-	password[i + 1] = '\0';
+    printf("%s\n", password);
 
-	printf("%s", password);
-	return (0);
+    return (0);
 }
+
