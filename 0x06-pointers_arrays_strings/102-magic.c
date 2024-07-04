@@ -1,29 +1,16 @@
-#include "main.h"
+#include <stdio.h>
 
-/**
- * main - prints even numbers from 0 to 100
- * Return: 0
- */
 int main(void)
 {
-	int i;
+	int n;
+	int a[5];
+	int *p;
 
-	printf("Before loop\n");
-	for (i = 0; i < 100; i++)
-	{
-		if (i % 2 != 0)
-		{
-			printf("i is not even so don't print\n");
-			continue;
-		}
-		else
-		{
-			printf("i is even, break to print\n");
-			printf("%d\n", i);
-			break;
-		}
-	}
-	printf("For loop exited\n");
+	a[2] = 1024;
+	p = &n;
+
+	*(p + 5) = 98;	/* This line sets a[2] to 98 indirectly */
+
+	printf("a[2] = %d\n", a[2]);
 	return (0);
 }
-
